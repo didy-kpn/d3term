@@ -1,0 +1,35 @@
+# d3term config example
+# 配置先:
+#   - $XDG_CONFIG_HOME/d3term/config.toml
+#   - XDG_CONFIG_HOME 未設定時は $HOME/.config/d3term/config.toml
+
+[startup]
+multiplexer = "zellij" # "none" | "tmux" | "zellij"
+shell = "/bin/zsh" # null 相当として省略可
+shell_args = ["-l"]
+zellij_command = "zellij attach -c d3term"
+tmux_command = "tmux new-session -A -s d3term"
+
+[terminal]
+theme = "system" # "system" | "dark" | "light"
+font_family = "'JetBrains Mono', Menlo, monospace"
+font_size = 13
+letter_spacing = 0 # -10 〜 10
+line_height = 1.2
+scrollback = 10000
+
+# --- tmux を既定にする場合 ---
+# [startup]
+# multiplexer = "tmux"
+# shell = "/bin/zsh"
+# shell_args = ["-l"]
+# zellij_command = "zellij attach -c d3term"
+# tmux_command = "tmux new-session -A -s d3term"
+
+# --- 通常シェル起動にする場合 ---
+# [startup]
+# multiplexer = "none"
+# shell = "/bin/zsh"
+# shell_args = ["-l"]
+# zellij_command = "zellij attach -c d3term"
+# tmux_command = "tmux new-session -A -s d3term"
